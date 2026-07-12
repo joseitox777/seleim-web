@@ -402,3 +402,21 @@ if (projectSlides.length > 0 && projectDots.length > 0 && projectsSlider) {
   showProject(0);
   startProjectAutoplay(PROJECT_SLIDE_TIME, 0);
 }
+
+/* =========================
+   CLIENTS INFINITE SLIDER
+========================= */
+
+const clientsTrack = document.querySelector(".clients-track");
+
+if (clientsTrack && !clientsTrack.dataset.loopReady) {
+  const originalLogos = Array.from(clientsTrack.children);
+
+  originalLogos.forEach((logo) => {
+    const clone = logo.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clientsTrack.appendChild(clone);
+  });
+
+  clientsTrack.dataset.loopReady = "true";
+}
